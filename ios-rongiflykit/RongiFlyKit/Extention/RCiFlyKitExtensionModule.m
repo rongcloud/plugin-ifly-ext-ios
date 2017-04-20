@@ -77,13 +77,13 @@
     
     NSMutableArray *itemList = [[NSMutableArray alloc] init];
     
-    RCExtensionPluginItemInfo *audioItem = [[RCExtensionPluginItemInfo alloc] init];
-    audioItem.image = [self imageFromiFlyBundle:@"actionbar_voice_input_icon"];
-    audioItem.title = NSLocalizedStringFromTable(@"VoiceInput", @"RongCloudKit", nil);
-    audioItem.tapBlock = ^(RCChatSessionInputBarControl *chatSessionInputBar){
+    RCExtensionPluginItemInfo *item = [[RCExtensionPluginItemInfo alloc] init];
+    item.image = [self imageFromiFlyBundle:@"actionbar_voice_input_icon"];
+    item.title = NSLocalizedStringFromTable(@"VoiceInput", @"RongCloudKit", nil);
+    item.tapBlock = ^(RCChatSessionInputBarControl *chatSessionInputBar){
         ws.chatBarControl = chatSessionInputBar;
         [chatSessionInputBar.pluginBoardView.extensionView setHidden:NO];
-        [chatSessionInputBar.pluginBoardView.extensionView addSubview:self.iflyInputView];
+        [chatSessionInputBar.pluginBoardView.extensionView addSubview:ws.iflyInputView];
         [ws.iflyInputView show:YES];
         NSString *text = chatSessionInputBar.inputTextView.text;
         if(text.length > 0){
@@ -91,7 +91,8 @@
         }
 
     };
-    [itemList addObject:audioItem];
+  item.tag = PLUGIN_BOARD_ITEM_VOICE_INPUT_TAG;
+    [itemList addObject:item];
     return [itemList copy];
 }
 

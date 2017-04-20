@@ -175,7 +175,7 @@
     __weak typeof(self) ws = self;
     [UIView animateWithDuration:.003 animations:^{
         NSString *imageName = [NSString stringWithFormat:@"voice_input_%d",index];
-        ws.imageView.image = [self imageFromiFlyBundle:imageName];
+        ws.imageView.image = [ws imageFromiFlyBundle:imageName];
     }];
     
 }
@@ -184,7 +184,7 @@
     self.imageView.image = [self imageFromiFlyBundle:@"voice_input_grey"];
     __weak typeof(self) ws = self;
     [UIView animateWithDuration:.3 animations:^{
-        ws.imageView.image = [self imageFromiFlyBundle:@"voice_input_blue"];
+        ws.imageView.image = [ws imageFromiFlyBundle:@"voice_input_blue"];
     }];
 }
 
