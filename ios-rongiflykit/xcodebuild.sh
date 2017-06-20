@@ -13,6 +13,11 @@ if [ ! -d "$DST_DIR" ]; then
 mkdir -p "$DST_DIR"
 fi
 
+DST_DIR1="./../ios-rongenterpriseapp/framework"
+if [ ! -d "$DST_DIR1" ]; then
+mkdir -p "$DST_DIR1"
+fi
+
 cp -af ./RongiFlyKit/Engine/iflyMSC.framework ${BIN_DIR}/
 cp -af ./RongiFlyKit/Resource/RongCloudiFly.bundle ${BIN_DIR}/
 
@@ -22,3 +27,4 @@ lipo -create $BIN_DIR_TMP/*-${TARGET_NAME}.framework/${TARGET_NAME} -output ${BI
 
 
 cp -af ${BIN_DIR}/* ${DST_DIR}/
+cp -af ${BIN_DIR}/* ${DST_DIR1}/
