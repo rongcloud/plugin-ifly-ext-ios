@@ -427,6 +427,7 @@
 			buildSettings = {
 				BITCODE_GENERATION_MODE = bitcode;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 9CVMN4UZK4;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -438,6 +439,7 @@
 					"$(PROJECT_DIR)/framework/ifly",
 					"$(PROJECT_DIR)/RongiFlyKit/Engine",
 				);
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				INFOPLIST_FILE = RongiFlyKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
