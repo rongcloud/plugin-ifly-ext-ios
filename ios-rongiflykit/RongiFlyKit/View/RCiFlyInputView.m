@@ -1,11 +1,12 @@
 //
-//  RCDVoiceInputView.m
-//  RCloudMessage
+//  RCiFlyInputView.m
+//  RongiFlyKit
 //
 //  Created by Sin on 16/11/10.
 //  Copyright © 2016年 RongCloud. All rights reserved.
 //
 
+#pragma clang diagnostic ignored "-Wincomplete-umbrella"
 #import "RCiFlyInputView.h"
 #import <iflyMSC/iflyMSC.h>
 #import "RCISRDataHelper.h"

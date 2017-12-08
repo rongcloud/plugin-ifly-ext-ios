@@ -6,6 +6,7 @@
 //  Copyright © 2016年 Sin. All rights reserved.
 //
 
+#pragma clang diagnostic ignored "-Wincomplete-umbrella"
 #import "RCiFlyKitExtensionModule.h"
 #import "RCiFlyInputView.h"
 #import <iflyMSC/iflyMSC.h>
