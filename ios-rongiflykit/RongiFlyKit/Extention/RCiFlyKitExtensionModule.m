@@ -13,7 +13,7 @@
 #import "RCiFlyKit.h"
 
 //默认的讯飞输入sdk的appKey
-#define iFlyKey @"58243565"
+#define iFlyKey @"5a3cf660"
 
 @interface RCiFlyKitExtensionModule ()<RCiFlyInputViewDelegate>
 @property (nonatomic, strong) RCiFlyInputView *iflyInputView;
@@ -82,6 +82,16 @@
     item.image = [self imageFromiFlyBundle:@"actionbar_voice_input_icon"];
     item.title = NSLocalizedStringFromTable(@"VoiceInput", @"RongCloudKit", nil);
     item.tapBlock = ^(RCChatSessionInputBarControl *chatSessionInputBar){
+        [ws checkPermissionIfSuccess:chatSessionInputBar];
+    };
+    item.tag = PLUGIN_BOARD_ITEM_VOICE_INPUT_TAG;
+    [itemList addObject:item];
+    return [itemList copy];
+}
+
+- (void)checkPermissionIfSuccess:(RCChatSessionInputBarControl *)chatSessionInputBar {
+    __weak typeof(self) ws = self;
+    [self checkRecordPermission:^{
         ws.chatBarControl = chatSessionInputBar;
         [chatSessionInputBar.pluginBoardView.extensionView setHidden:NO];
         [chatSessionInputBar.pluginBoardView.extensionView addSubview:ws.iflyInputView];
@@ -90,11 +100,7 @@
         if(text.length > 0){
             [ws.iflyInputView showBottom:YES];
         }
-
-    };
-  item.tag = PLUGIN_BOARD_ITEM_VOICE_INPUT_TAG;
-    [itemList addObject:item];
-    return [itemList copy];
+    }];
 }
 
 - (UIImage *)imageFromiFlyBundle:(NSString *)imageName {
@@ -143,6 +149,36 @@
 //发生错误的回调
 - (void)onError:(NSString *)errDesc {
     
+}
+
+- (void)checkRecordPermission:(void (^)(void))successBlock {
+    if ([[AVAudioSession sharedInstance] respondsToSelector:@selector(requestRecordPermission:)]) {
+        BOOL firstTime = NO;
+        if ([[AVAudioSession sharedInstance] respondsToSelector:@selector(recordPermission)]) {
+            firstTime = [AVAudioSession sharedInstance].recordPermission == AVAudioSessionRecordPermissionUndetermined;
+        }
+        [[AVAudioSession sharedInstance] requestRecordPermission:^(BOOL granted) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (granted) {
+                    if (!firstTime) {
+                        successBlock();
+                    }
+                } else {
+                    UIAlertView *alertView =
+                    [[UIAlertView alloc] initWithTitle:NSLocalizedStringFromTable(@"AccessRightTitle", @"RongCloudKit", nil)
+                                               message:NSLocalizedStringFromTable(@"speakerAccessRight", @"RongCloudKit", nil)
+                                              delegate:nil
+                                     cancelButtonTitle:NSLocalizedStringFromTable(@"OK", @"RongCloudKit", nil)
+                                     otherButtonTitles:nil, nil];
+                    [alertView show];
+                }
+            });
+        }];
+    } else {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            successBlock();
+        });
+    }
 }
 
 @end

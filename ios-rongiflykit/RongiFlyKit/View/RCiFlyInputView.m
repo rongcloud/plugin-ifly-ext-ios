@@ -11,6 +11,12 @@
 #import <iflyMSC/iflyMSC.h>
 #import "RCISRDataHelper.h"
 
+@interface RCVoicePlayer : NSObject
++ (RCVoicePlayer *)defaultPlayer;
+- (void)stopPlayVoice;
+@property(nonatomic, readonly) BOOL isPlaying;
+@end
+
 //本app语音输入使用科大讯飞语音输入法
 @interface RCiFlyInputView ()<IFlySpeechRecognizerDelegate>
 @property(nonatomic, strong) UIButton *clearButton;
@@ -99,6 +105,7 @@
     if([self.speechRecognizer isListening]){
         [self stopListening];
     }else {
+        [self stopVoicePlayerIfNeed];
         [self.speechRecognizer startListening];
     }
 }
@@ -107,6 +114,7 @@
     self.hidden = !isShow;
     if(isShow){
         [self showBottom:NO];
+        [self stopVoicePlayerIfNeed];
         [self.speechRecognizer startListening];
     }
 }
@@ -119,6 +127,12 @@
     if(self.speechRecognizer && [self.speechRecognizer isListening]){
         [self.speechRecognizer stopListening];
         self.imageView.image = [self imageFromiFlyBundle:@"voice_input_grey"];
+    }
+}
+
+- (void)stopVoicePlayerIfNeed {
+    if([RCVoicePlayer defaultPlayer].isPlaying) {
+        [[RCVoicePlayer defaultPlayer] stopPlayVoice];
     }
 }
 
