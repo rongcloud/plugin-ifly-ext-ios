@@ -1032,10 +1032,19 @@ typedef NS_ENUM(NSUInteger, RCPlatform) {
     RCPlatform_PC = 4
 };
 
-#pragma mark RCPushLauguageType - push 语音设置
+#pragma mark RCPushLauguageType - push 语言设置
+/*!
+ push 语言设置
+ */
 typedef NS_ENUM(NSUInteger, RCPushLauguage) {
-    RCPushLauguage_EN_US = 1, //英文
-    RCPushLauguage_ZH_CN,     //中文
+    /*!
+     英文
+     */
+    RCPushLauguage_EN_US = 1,
+    /*!
+     中文
+     */
+    RCPushLauguage_ZH_CN
 };
 
 #endif

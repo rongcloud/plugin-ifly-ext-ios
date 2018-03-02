@@ -25,8 +25,7 @@
  初始化会话列表
 
  @param displayConversationTypeArray    列表中需要显示的会话类型数组(需要将RCConversationType转为NSNumber构建Array)
- @param collectionConversationTypeArray
- 列表中需要聚合为一条显示的会话类型数组(需要将RCConversationType转为NSNumber构建Array)
+ @param collectionConversationTypeArray 列表中需要聚合为一条显示的会话类型数组(需要将RCConversationType转为NSNumber构建Array)
  @return                                    会话列表对象
 
  @discussion
