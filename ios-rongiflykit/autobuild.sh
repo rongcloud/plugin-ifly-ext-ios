@@ -11,6 +11,8 @@ DEV_FLAG=""
 VER_FLAG=""
 ENV_FLAG="pro"
 
+Build_Arm_Flag="0"
+
 for i in "$@"
 do
 PFLAG=`echo $i|cut -b1-2`
