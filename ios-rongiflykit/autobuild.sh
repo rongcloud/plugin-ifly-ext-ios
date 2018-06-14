@@ -24,6 +24,9 @@ VER_FLAG=$PPARAM
 elif [ ${PFLAG} == "-d" ]
 then
 ENV_FLAG=$PPARAM
+elif [ $PFLAG == "-s" ]
+then
+Build_Arm_Flag=$PPARAM
 fi
 done
 
@@ -46,8 +49,10 @@ xcodebuild clean -configuration $configuration -sdk $TARGET_DECIVE
 xcodebuild clean -configuration $configuration -sdk $TARGET_I386
 
 echo "***开始Build ${targetName} Framework ${configuration}****"
+if [ ${Build_Arm_Flag} != '1' ]; then
 echo "***开始build iphonesimulator文件***"
 xcodebuild -project ${PROJECT_NAME} -target "$targetName" -configuration $configuration  -sdk $TARGET_I386 build
+fi
 echo "***开始build iphoneos文件***"
 xcodebuild -project ${PROJECT_NAME} -target "$targetName" -configuration $configuration  -sdk $TARGET_DECIVE build
 echo "***完成Build ${targetName} Framework ${configuration}****"
