@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A9FBECC219AA25600080CE8 /* RCIFlySpeechRecognizerManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A9FBECA219AA25600080CE8 /* RCIFlySpeechRecognizerManager.h */; };
+		0A9FBECD219AA25600080CE8 /* RCIFlySpeechRecognizerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9FBECB219AA25600080CE8 /* RCIFlySpeechRecognizerManager.m */; };
 		2784BD901DDAA69000154E51 /* RongiFlyKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 2784BD8E1DDAA69000154E51 /* RongiFlyKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2784BD9B1DDAA7ED00154E51 /* RCiFlyKitExtensionModule.h in Headers */ = {isa = PBXBuildFile; fileRef = 2784BD991DDAA7ED00154E51 /* RCiFlyKitExtensionModule.h */; };
 		2784BD9C1DDAA7ED00154E51 /* RCiFlyKitExtensionModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 2784BD9A1DDAA7ED00154E51 /* RCiFlyKitExtensionModule.m */; };
@@ -32,6 +34,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A9FBECA219AA25600080CE8 /* RCIFlySpeechRecognizerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCIFlySpeechRecognizerManager.h; path = "../../ios-rongiFlyKit/RongiFlyKit/RCIFlySpeechRecognizerManager.h"; sourceTree = "<group>"; };
+		0A9FBECB219AA25600080CE8 /* RCIFlySpeechRecognizerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCIFlySpeechRecognizerManager.m; path = "../../ios-rongiFlyKit/RongiFlyKit/RCIFlySpeechRecognizerManager.m"; sourceTree = "<group>"; };
 		2784BD8B1DDAA69000154E51 /* RongiFlyKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RongiFlyKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2784BD8E1DDAA69000154E51 /* RongiFlyKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RongiFlyKit.h; sourceTree = "<group>"; };
 		2784BD8F1DDAA69000154E51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -108,6 +112,8 @@
 				2784BD8E1DDAA69000154E51 /* RongiFlyKit.h */,
 				27C368B31DE40B61008D2E94 /* RCiFlyKit.h */,
 				27C368B41DE40B61008D2E94 /* RCiFlyKit.m */,
+				0A9FBECA219AA25600080CE8 /* RCIFlySpeechRecognizerManager.h */,
+				0A9FBECB219AA25600080CE8 /* RCIFlySpeechRecognizerManager.m */,
 				27AADC111DDC43E900E1AE31 /* Utility */,
 				27AADC121DDC43E900E1AE31 /* View */,
 				2784BD8F1DDAA69000154E51 /* Info.plist */,
@@ -190,6 +196,7 @@
 				2784BD9B1DDAA7ED00154E51 /* RCiFlyKitExtensionModule.h in Headers */,
 				27C368B51DE40B61008D2E94 /* RCiFlyKit.h in Headers */,
 				2784BD901DDAA69000154E51 /* RongiFlyKit.h in Headers */,
+				0A9FBECC219AA25600080CE8 /* RCIFlySpeechRecognizerManager.h in Headers */,
 				27AADC151DDC441900E1AE31 /* RCISRDataHelper.h in Headers */,
 				27AADC1D1DDC448E00E1AE31 /* RCiFlyInputView.h in Headers */,
 			);
@@ -285,6 +292,7 @@
 				27AADC161DDC441900E1AE31 /* RCISRDataHelper.m in Sources */,
 				27AADC1E1DDC448E00E1AE31 /* RCiFlyInputView.m in Sources */,
 				2784BD9C1DDAA7ED00154E51 /* RCiFlyKitExtensionModule.m in Sources */,
+				0A9FBECD219AA25600080CE8 /* RCIFlySpeechRecognizerManager.m in Sources */,
 				27C368B61DE40B61008D2E94 /* RCiFlyKit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

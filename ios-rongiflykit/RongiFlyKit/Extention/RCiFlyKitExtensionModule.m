@@ -10,7 +10,6 @@
 #import "RCiFlyKitExtensionModule.h"
 #import "RCiFlyInputView.h"
 #import <iflyMSC/iflyMSC.h>
-#import "RCiFlyKit.h"
 
 //默认的讯飞输入sdk的appKey
 #define iFlyKey @"5a3cf660"
@@ -73,8 +72,10 @@
         //所有服务启动前，需要确保执行createUtility
         [IFlySpeechUtility createUtility:initString];
     });
-    self.conversationType = conversationType;
-    self.targetId = targetId;
+    if (conversationType != ConversationType_Encrypted) {
+        self.conversationType = conversationType;
+        self.targetId = targetId;
+    }
     
     NSMutableArray *itemList = [[NSMutableArray alloc] init];
     
