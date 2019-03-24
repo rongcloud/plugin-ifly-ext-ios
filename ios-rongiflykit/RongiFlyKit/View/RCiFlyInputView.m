@@ -110,9 +110,15 @@
     }
 }
 
-- (void)show:(BOOL)isShow {
+- (void)show:(BOOL)isShow inputBarWidth:(CGFloat)inputBarWidth {
     self.hidden = !isShow;
     if(isShow){
+        CGRect frame = self.frame;
+        if (frame.size.width != inputBarWidth) {
+            frame.size.width = inputBarWidth;
+            self.frame = frame;
+            self.backImageView.center = CGPointMake(inputBarWidth / 2, self.backImageView.center.y);
+        }
         [self showBottom:NO];
         [self stopVoicePlayerIfNeed];
         [self.speechRecognizer startListening];

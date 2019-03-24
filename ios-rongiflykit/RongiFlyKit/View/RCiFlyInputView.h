@@ -14,7 +14,7 @@
 
 @property (nonatomic, weak) id<RCiFlyInputViewDelegate> delegate;
 
-- (void)show:(BOOL)isShow;
+- (void)show:(BOOL)isShow inputBarWidth:(CGFloat)inputBarWidth;
 
 - (void)showBottom:(BOOL)isShow;
 

@@ -96,7 +96,12 @@
         ws.chatBarControl = chatSessionInputBar;
         [chatSessionInputBar.pluginBoardView.extensionView setHidden:NO];
         [chatSessionInputBar.pluginBoardView.extensionView addSubview:ws.iflyInputView];
-        [ws.iflyInputView show:YES];
+        CGRect frame = chatSessionInputBar.pluginBoardView.extensionView.frame;
+        if (frame.size.width != chatSessionInputBar.frame.size.width) {
+            frame.size.width = chatSessionInputBar.frame.size.width;
+            chatSessionInputBar.pluginBoardView.extensionView.frame = frame;
+        }
+        [ws.iflyInputView show:YES inputBarWidth:chatSessionInputBar.frame.size.width];
         NSString *text = chatSessionInputBar.inputTextView.text;
         if(text.length > 0){
             [ws.iflyInputView showBottom:YES];
