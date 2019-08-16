@@ -1,4 +1,5 @@
 "RC:ImgMsg"="[Image]";
+"RC:GIFMsg"="[Image]";
 "RC:LBSMsg"="[Location]";
 "RC:VcMsg"="[Voice]";
 "RC:ImgTextMsg"="[Message]";
@@ -222,6 +223,8 @@
 "receive_new_message"="You got a new message";
 "push_to_talk"="Push to Talk";
 "no_message"="No chats info";
+"common_phrases" = "Universal";
+"voip_network_bad"="current network is not good";
 "hold_to_talk_title"="Hold to talk";
 "release_to_send_title"="Release to send";
 "message_too_short"="Message too short";
@@ -265,3 +268,4 @@
 "downloadFailedClickToDownload"="Download failed, click to download";
 "OvermMaximum"="the maximum size of file is limited to 100MB";
 "Edit"="Edit";
+"GIFAboveMaxSize" = "GIF image size too large, Unable to send";

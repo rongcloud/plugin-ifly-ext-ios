@@ -1,4 +1,5 @@
 "RC:ImgMsg"="[图片]";
+"RC:GIFMsg"="[图片]";
 "RC:LBSMsg"="[位置]";
 "RC:VcMsg"="[语音]";
 "RC:ImgTextMsg"="[图文]";
@@ -221,6 +222,8 @@
 "receive_new_message"="你收到一条新消息";
 "push_to_talk"="对讲机";
 "no_message"="暂无消息";
+"common_phrases" = "常用语";
+"voip_network_bad"="当前通话网络不佳";
 "hold_to_talk_title"="按住 说话";
 "release_to_send_title"="松开 发送";
 "slide_up_to_cancel_title"="手指上滑，取消发送";
@@ -265,3 +268,4 @@
 "downloadFailedClickToDownload"="下载失败，点击重新下载";
 "OvermMaximum"="文件大小最大为 100 MB";
 "Edit"="编辑";
+"GIFAboveMaxSize" = "该 GIF 图尺寸过大，无法发送";

@@ -136,7 +136,11 @@ typedef NS_ENUM(NSInteger, KBottomBarStatus) {
     /*!
      语音消息输入模式
      */
-    KBottomBarRecordStatus
+    KBottomBarRecordStatus,
+    /*!
+     常用语输入模式
+     */
+    KBottomBarCommonPhrasesStatus
 };
 
 /*!
@@ -436,6 +440,15 @@ typedef NS_ENUM(NSInteger, KBottomBarStatus) {
 - (void)openDynamicFunction:(NSInteger)functionTag;
 
 /*!
+ 常用语列表设置
+ 
+ @param commonPhrasesList 您需要展示的常用语列表
+ 
+ @discussion 常用语条数需大于 0 条，每条内容最多可配置 30 个字，且只支持单聊。
+ */
+-(BOOL)setCommonPhrasesList:(NSArray<NSString *> *)commonPhrasesList;
+
+/*!
  更新输入框的Frame
 
  @warning  **已废弃，请勿使用。**
@@ -520,6 +533,13 @@ typedef NS_ENUM(NSInteger, KBottomBarStatus) {
  @param sendButton 发送按钮
  */
 - (void)emojiView:(RCEmojiBoardView *)emojiView didTouchSendButton:(UIButton *)sendButton;
+
+/*!
+ 点击常用语的回调
+ 
+ @param commonPhrases  常用语
+ */
+- (void)commonPhrasesViewDidTouch:(NSString *)commonPhrases;
 
 /*!
  开始录制语音消息
