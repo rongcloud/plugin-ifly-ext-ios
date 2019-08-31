@@ -90,7 +90,7 @@
 "PublicService"="Public Accounts";
 "NOT_IN_DISCUSSION"="You are not in current discussion";
 "NOT_IN_GROUP"="You are not in current group";
-"FORBIDDEN_IN_GROUP"="You are banned to send message in current group.";
+"FORBIDDEN_IN_GROUP"="You are banned to send message in current group";
 "NOT_IN_CHATROOM"="You are not in current chatroom";
 "Message rejected"="Your message has been sent, but rejected by receiver";
 "AccessRightTitle"="Cannot access";
