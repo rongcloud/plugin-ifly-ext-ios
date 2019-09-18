@@ -6,8 +6,9 @@
 //  Copyright © 2018年 RongCloud. All rights reserved.
 //
 
-#import <RongIMKit/RongIMKit.h>
+#import "RCMessageCell.h"
 #import "RCGIFImageView.h"
+#import "RCImageMessageProgressView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
