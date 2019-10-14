@@ -230,6 +230,24 @@
 
 @end
 
+#pragma mark - 阅后即焚
+
+/**
+ IMLib阅后即焚监听器
+ @discussion 设置代理请参考 RCIMClient 的 setRCMessageDestructDelegate: 方法。
+ */
+@protocol RCMessageDestructDelegate <NSObject>
+
+/**
+ 消息正在焚烧
+ 
+ @param message 消息对象
+ @param remainDuration 剩余焚烧时间
+ */
+- (void)onMessageDestructing: (RCMessage *)message remainDuration: (long long)remainDuration;
+
+@end
+
 #pragma mark - IMLib核心类
 
 /*!
@@ -285,6 +303,25 @@
 - (void)initWithAppKey:(NSString *)appKey;
 
 /*!
+设置 deviceToken（已兼容 iOS 13），用于远程推送
+
+@param deviceTokenData     从系统获取到的设备号 deviceTokenData (不需要处理)
+
+@discussion
+deviceToken 是系统提供的，从苹果服务器获取的，用于 APNs 远程推送必须使用的设备唯一值。
+您需要将 -application:didRegisterForRemoteNotificationsWithDeviceToken: 获取到的 deviceToken 作为参数传入此方法。
+
+如:
+
+   - (void)application:(UIApplication *)application
+   didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+       [[RCIMClient sharedRCIMClient] setDeviceTokenData:deviceToken];
+   }
+
+*/
+- (void)setDeviceTokenData:(NSData *)deviceTokenData;
+
+/*!
  设置deviceToken，用于远程推送
 
  @param deviceToken     从系统获取到的设备号deviceToken(需要去掉空格和尖括号)
@@ -297,15 +334,19 @@
 
     - (void)application:(UIApplication *)application
     didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
-        NSString *token = [deviceToken description];
-        token = [token stringByReplacingOccurrencesOfString:@"<"
- withString:@""];
-        token = [token stringByReplacingOccurrencesOfString:@">"
- withString:@""];
-        token = [token stringByReplacingOccurrencesOfString:@" "
- withString:@""];
+        NSString *token = [self getHexStringForData:deviceToken];
         [[RCIMClient sharedRCIMClient] setDeviceToken:token];
     }
+
+    - (NSString *)getHexStringForData:(NSData *)data {
+        NSUInteger len = [data length];
+        char *chars = (char *)[data bytes];
+        NSMutableString *hexString = [[NSMutableString alloc] init];
+        for (NSUInteger i = 0; i < len; i ++) {
+            [hexString appendString:[NSString stringWithFormat:@"%0.2hhx", chars[i]]];
+        }
+        return hexString;
+     }
 
  */
 - (void)setDeviceToken:(NSString *)deviceToken;
@@ -515,6 +556,17 @@
  用于Apple Watch的IMLib事务监听器
  */
 @property(nonatomic, strong) id<RCWatchKitStatusDelegate> watchKitStatusDelegate;
+
+#pragma mark - 阅后即焚监听
+
+/**
+ 设置IMLib的阅后即焚监听器
+ 
+ @param delegate 阅后即焚监听器
+ @discussion 可以设置并实现此 Delegate 监听消息焚烧
+ @warning 如果您使用IMKit，请不要使用此监听器，否则会导致IMKit中无法自动更新UI！
+ */
+- (void)setRCMessageDestructDelegate:(id<RCMessageDestructDelegate>)delegate;
 
 #pragma mark - 用户信息
 
@@ -1572,6 +1624,22 @@ FOUNDATION_EXPORT NSString *const RCLibDispatchReadReceiptNotification;
  @return                是否设置成功
  */
 - (BOOL)setMessageSentStatus:(long)messageId sentStatus:(RCSentStatus)sentStatus;
+
+/**
+ 开始焚烧消息（目前仅支持单聊）
+ 
+ @param message 消息类
+ @discussion 仅限接收方调用
+ */
+- (void)messageBeginDestruct:(RCMessage *)message;
+
+/**
+ 停止焚烧消息（目前仅支持单聊）
+ 
+ @param message 消息类
+ @discussion 仅限接收方调用
+ */
+- (void)messageStopDestruct:(RCMessage *)message;
 
 #pragma mark - 会话列表操作
 /*!

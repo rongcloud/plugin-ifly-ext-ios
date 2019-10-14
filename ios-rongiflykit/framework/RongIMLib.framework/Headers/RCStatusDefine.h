@@ -837,7 +837,12 @@ typedef NS_ENUM(NSUInteger, RCMediaType) {
     /*!
      小视频
      */
-    MediaType_SIGHT = 5
+    MediaType_SIGHT = 5,
+    
+    /*!
+     合并转发
+     */
+    MediaType_HTML = 6
 };
 
 #pragma mark RCMediaType - 消息中@提醒的类型

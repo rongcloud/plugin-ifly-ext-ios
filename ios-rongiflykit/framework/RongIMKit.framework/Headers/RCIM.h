@@ -1166,4 +1166,16 @@ FOUNDATION_EXPORT NSString *const RCKitDispatchMessageReceiptRequestNotification
  */
 @property(nonatomic, assign) NSInteger GIFMsgAutoDownloadSize;
 
+/*!
+ 是否开启合并转发功能，默认值是NO，开启之后可以合并转发消息(目前只支持单聊和群聊)
+ */
+@property(nonatomic, assign) BOOL enableSendCombineMessage;
+
+/*!
+ 是否开启阅后即焚功能，默认值是NO，开启之后可以在聊天页面扩展板中使用阅后即焚功能(目前只支持单聊)
+ 
+ @discussion 目前 IMKit 仅支持文本、语音、图片、小视频消息。
+ */
+@property(nonatomic, assign) BOOL enableBurnMessage;
+
 @end

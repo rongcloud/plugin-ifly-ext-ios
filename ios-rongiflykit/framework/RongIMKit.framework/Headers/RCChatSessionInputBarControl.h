@@ -18,6 +18,7 @@
 #define PLUGIN_BOARD_ITEM_ALBUM_TAG 1001
 #define PLUGIN_BOARD_ITEM_CAMERA_TAG 1002
 #define PLUGIN_BOARD_ITEM_LOCATION_TAG 1003
+#define PLUGIN_BOARD_ITEM_BURN_TAG 1004
 #define PLUGIN_BOARD_ITEM_FILE_TAG 1006
 #define PLUGIN_BOARD_ITEM_VOIP_TAG 1101
 #define PLUGIN_BOARD_ITEM_VIDEO_VOIP_TAG 1102
@@ -110,7 +111,11 @@ typedef NS_ENUM(NSInteger, RCChatSessionInputBarInputType) {
     /*!
      扩展输入模式
      */
-    RCChatSessionInputBarInputExtention = 2
+    RCChatSessionInputBarInputExtention = 2,
+    /*!
+     阅后即焚输入模式
+     */
+    RCChatSessionInputBarInputBurnMode = 3
 };
 
 /*!
@@ -126,21 +131,25 @@ typedef NS_ENUM(NSInteger, KBottomBarStatus) {
      */
     KBottomBarKeyboardStatus,
     /*!
-     功能板输入模式
+     功能板输入状态
      */
     KBottomBarPluginStatus,
     /*!
-     表情输入模式
+     表情输入状态
      */
     KBottomBarEmojiStatus,
     /*!
-     语音消息输入模式
+     语音消息输入状态
      */
     KBottomBarRecordStatus,
     /*!
-     常用语输入模式
+     常用语输入状态
      */
-    KBottomBarCommonPhrasesStatus
+    KBottomBarCommonPhrasesStatus,
+    /*!
+     阅后即焚输入状态
+     */
+    KBottomBarBurnStatus,
 };
 
 /*!
