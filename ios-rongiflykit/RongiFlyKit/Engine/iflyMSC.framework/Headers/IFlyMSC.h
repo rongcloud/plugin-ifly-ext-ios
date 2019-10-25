@@ -34,6 +34,4 @@
 #import "IFlyVoiceWakeuper.h"
 #import "IFlyVoiceWakeuperDelegate.h"
 
-
-
 #endif

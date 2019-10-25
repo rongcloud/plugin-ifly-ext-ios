@@ -21,17 +21,17 @@
  *  @param format -[in] 要打印的内容格式
  *  @param ...    -[in] 要打印的内容
  */
-+ (void) showLog:(NSString *)format, ...;
++ (void)showLog:(NSString *)format, ...;
 
 /*!
  *  将log写入文件中
  */
-+ (void) writeLog;
++ (void)writeLog;
 
 /*!
  *  设置是否显示log
  *
  *  @param showLog YES:显示；NO:不显示
  */
-+ (void) setShowLog:(BOOL) showLog;
++ (void)setShowLog:(BOOL)showLog;
 @end

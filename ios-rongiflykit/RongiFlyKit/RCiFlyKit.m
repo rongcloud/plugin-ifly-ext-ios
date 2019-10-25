@@ -16,7 +16,7 @@
 @implementation RCiFlyKit
 
 + (void)setiFlyAppkey:(NSString *)key {
-  [[RCiFlyKitExtensionModule sharedRCiFlyKitExtensionModule] setiFlyAppkey:key];
+    [[RCiFlyKitExtensionModule sharedRCiFlyKitExtensionModule] setiFlyAppkey:key];
 }
 
 @end

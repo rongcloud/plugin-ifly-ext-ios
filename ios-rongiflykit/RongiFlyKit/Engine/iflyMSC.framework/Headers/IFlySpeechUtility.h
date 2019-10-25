@@ -8,14 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
-#define iOS_EXCLUSIVE       //iOS平台独占API
+#define iOS_EXCLUSIVE // iOS平台独占API
 
 @class IFlySpeechError;
 
 /*!
  *  引擎模式
  */
-typedef NS_ENUM(NSUInteger,IFlyEngineMode){
+typedef NS_ENUM(NSUInteger, IFlyEngineMode) {
     /*!
      *  云端使用MSC，本地优先使用语记
      */
@@ -30,15 +30,14 @@ typedef NS_ENUM(NSUInteger,IFlyEngineMode){
     IFlyEngineModePlus,
 };
 
-
 /*!
  *  服务类型
  */
-typedef NS_ENUM(NSUInteger,IFlySpeechPlusServiceType){
+typedef NS_ENUM(NSUInteger, IFlySpeechPlusServiceType) {
     /*!
      *  打开语记主界面
      */
-    IFlySpeechPlusServiceTypeNone=0,
+    IFlySpeechPlusServiceTypeNone = 0,
     /*!
      *  获取合成资源
      */
@@ -51,7 +50,7 @@ typedef NS_ENUM(NSUInteger,IFlySpeechPlusServiceType){
      *  获取唤醒资源（未开放）
      */
     IFlySpeechPlusServiceTypeIVW,
-} ;
+};
 
 /*! 语记返回回调
  */
@@ -85,21 +84,21 @@ typedef NS_ENUM(NSUInteger,IFlySpeechPlusServiceType){
  *
  *  @return 语音配置对象
  */
-+ (IFlySpeechUtility*) createUtility:(NSString *) params;
++ (IFlySpeechUtility *)createUtility:(NSString *)params;
 
 /*!
  *  销毁用户配置对象
  *
  *  @return 成功返回YES,失败返回NO
  */
-+(BOOL) destroy;
++ (BOOL)destroy;
 
 /*!
  *  获取用户配置对象
  *
  *  @return 用户配置对象
  */
-+(IFlySpeechUtility *) getUtility;
++ (IFlySpeechUtility *)getUtility;
 
 /*!
  *  设置MSC引擎的状态参数
@@ -109,7 +108,7 @@ typedef NS_ENUM(NSUInteger,IFlySpeechPlusServiceType){
  *
  *  @return 成功返回YES,失败返回NO
  */
--(BOOL) setParameter:(NSString *) value forKey:(NSString*)key;
+- (BOOL)setParameter:(NSString *)value forKey:(NSString *)key;
 
 /*!
  *  获取MSC引擎状态参数
@@ -152,7 +151,6 @@ typedef NS_ENUM(NSUInteger,IFlySpeechPlusServiceType){
  */
 + (NSString *)componentUrl;
 
-
 /*!
  *  注意：此接口废弃，不再需要使用<br>
  *  处理语记使用URL启动第三方应用程序时传递的数据<br>
@@ -174,11 +172,3 @@ typedef NS_ENUM(NSUInteger,IFlySpeechPlusServiceType){
 - (BOOL)openSpeechPlus:(IFlySpeechPlusServiceType)serviceType iOS_EXCLUSIVE;
 
 @end
-
-
-
-
-
-
-
-

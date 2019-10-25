@@ -9,12 +9,12 @@
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
-typedef void(^ IFlyRecognitioResult) (NSString *result);
+typedef void (^IFlyRecognitioResult)(NSString *result);
 
 @interface RCIFlySpeechRecognizerManager : NSObject
-@property (nonatomic,assign)BOOL isFlyRecognitioning;
+@property (nonatomic, assign) BOOL isFlyRecognitioning;
 + (RCIFlySpeechRecognizerManager *)speechRecognizerSharedManager;
-- (void)recognitionSpeech:(NSData *)data Result:(void (^)(NSDictionary *result)) recognitionResultBlock;
+- (void)recognitionSpeech:(NSData *)data Result:(void (^)(NSDictionary *result))recognitionResultBlock;
 @end
 
 NS_ASSUME_NONNULL_END

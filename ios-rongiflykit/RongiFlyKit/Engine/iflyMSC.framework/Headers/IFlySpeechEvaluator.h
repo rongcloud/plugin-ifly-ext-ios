@@ -6,11 +6,10 @@
 //  Copyright (c) 2013年 iflytek. All rights reserved.
 //
 
-
 #import <Foundation/Foundation.h>
 #import "IFlySpeechEvaluatorDelegate.h"
 
-#define IFLY_AUDIO_SOURCE_MIC    @"1"
+#define IFLY_AUDIO_SOURCE_MIC @"1"
 #define IFLY_AUDIO_SOURCE_STREAM @"-1"
 
 /*!
@@ -21,7 +20,7 @@
 /*!
  *  设置委托对象
  */
-@property (assign) id <IFlySpeechEvaluatorDelegate> delegate;
+@property (assign) id<IFlySpeechEvaluatorDelegate> delegate;
 
 /*!
  *  返回评测对象的单例
@@ -47,7 +46,6 @@
  */
 - (BOOL)setParameter:(NSString *)value forKey:(NSString *)key;
 
-
 /*!
  *  获得评测引擎的参数
  *
@@ -55,7 +53,7 @@
  *
  *  @return key对应的参数值
  */
-- (NSString*)parameterForKey:(NSString *)key;
+- (NSString *)parameterForKey:(NSString *)key;
 
 /*!
  *  开始评测<br>
@@ -84,7 +82,7 @@
  *  音频流评测<br>
  *  音频流评测可以将文件分段写入
  */
-@interface IFlySpeechEvaluator(IFlyStreamISERecognizer)
+@interface IFlySpeechEvaluator (IFlyStreamISERecognizer)
 
 /*!
  *  写入音频流
@@ -93,9 +91,6 @@
  *
  *  @return 写入成功返回YES，写入失败返回NO
  */
-- (BOOL) writeAudio:(NSData *) audioData;
+- (BOOL)writeAudio:(NSData *)audioData;
 
 @end
-
-
-

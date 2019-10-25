@@ -6,7 +6,6 @@
 //  Copyright (c) 2013年 iflytek. All rights reserved.
 //
 
-
 #import <Foundation/Foundation.h>
 
 @class IFlySpeechError;
@@ -61,4 +60,3 @@
 - (void)onResults:(NSData *)results isLast:(BOOL)isLast;
 
 @end
-

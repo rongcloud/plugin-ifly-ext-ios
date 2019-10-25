@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-
 @class IFlySpeechError;
 
 /*!
@@ -19,11 +18,11 @@
 /*!
  *  数据名称
  */
-@property(nonatomic,copy) NSString *dataName;
+@property (nonatomic, copy) NSString *dataName;
 /*!
  *  数据
  */
-@property(nonatomic,copy) NSString *data;
+@property (nonatomic, copy) NSString *data;
 
 /*!
  *  上传完成回调
@@ -31,7 +30,7 @@
  *  @param result 结果
  *  @param error  错误码
  */
-typedef void(^IFlyUploadDataCompletionHandler)(NSString* result,IFlySpeechError * error);
+typedef void (^IFlyUploadDataCompletionHandler)(NSString *result, IFlySpeechError *error);
 
 /*!
  *  上传数据
@@ -41,7 +40,9 @@ typedef void(^IFlyUploadDataCompletionHandler)(NSString* result,IFlySpeechError 
  *  @param name              -[in] 上传的内容名称，名称最好和你要上传的数据内容相关,不可以为nil
  *  @param data              -[in] 上传的数据，以utf8编码,不可以为nil
  */
-- (void) uploadDataWithCompletionHandler:(IFlyUploadDataCompletionHandler)completionHandler name:(NSString *)name data:(NSString *)data;
+- (void)uploadDataWithCompletionHandler:(IFlyUploadDataCompletionHandler)completionHandler
+                                   name:(NSString *)name
+                                   data:(NSString *)data;
 
 /*!
  *  设置上传数据参数
@@ -49,6 +50,6 @@ typedef void(^IFlyUploadDataCompletionHandler)(NSString* result,IFlySpeechError 
  *  @param parameter 参数值
  *  @param key       参数名
  */
--(void) setParameter:(NSString*) parameter forKey:(NSString*) key;
+- (void)setParameter:(NSString *)parameter forKey:(NSString *)key;
 
 @end

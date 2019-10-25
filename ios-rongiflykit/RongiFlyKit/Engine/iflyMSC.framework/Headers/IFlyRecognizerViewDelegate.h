@@ -22,14 +22,14 @@
  *  @param resultArray 识别结果，NSArray的第一个元素为NSDictionary，NSDictionary的key为识别结果，sc为识别结果的置信度
  *  @param isLast      -[out] 是否最后一个结果
  */
-- (void)onResult:(NSArray *)resultArray isLast:(BOOL) isLast;
+- (void)onResult:(NSArray *)resultArray isLast:(BOOL)isLast;
 
 /*!
  *  识别结束回调
  *
  *  @param error 识别结束错误码
  */
-- (void)onError: (IFlySpeechError *) error;
+- (void)onError:(IFlySpeechError *)error;
 
 @optional
 

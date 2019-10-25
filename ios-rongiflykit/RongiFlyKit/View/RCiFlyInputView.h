@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol RCiFlyInputViewDelegate ;
+@protocol RCiFlyInputViewDelegate;
 @interface RCiFlyInputView : UIView
 + (instancetype)iFlyInputViewWithFrame:(CGRect)frame;
 

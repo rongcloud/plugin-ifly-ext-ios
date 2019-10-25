@@ -12,6 +12,6 @@
 /**
  解析JSON数据
  ****/
-+ (NSString *)stringFromJson:(NSString*)params;//
++ (NSString *)stringFromJson:(NSString *)params; //
 
 @end

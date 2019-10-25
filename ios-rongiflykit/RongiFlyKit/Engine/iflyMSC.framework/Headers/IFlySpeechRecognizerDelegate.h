@@ -16,8 +16,7 @@
  *  @param grammarId 语法id
  *  @param error     错误描述
  */
-typedef void(^IFlyOnBuildFinishCompletionHandler)(NSString* grammarId,IFlySpeechError * error);
-
+typedef void (^IFlyOnBuildFinishCompletionHandler)(NSString *grammarId, IFlySpeechError *error);
 
 /*!
  *  语音识别协议<br>
@@ -34,7 +33,7 @@ typedef void(^IFlyOnBuildFinishCompletionHandler)(NSString* grammarId,IFlySpeech
  *
  *  @param errorCode 错误描述
  */
-- (void) onError:(IFlySpeechError *) errorCode;
+- (void)onError:(IFlySpeechError *)errorCode;
 
 /*!
  *  识别结果回调
@@ -51,10 +50,11 @@ typedef void(^IFlyOnBuildFinishCompletionHandler)(NSString* grammarId,IFlySpeech
  *   }
  *  </code></pre>
  *
- *  @param results  -[out] 识别结果，NSArray的第一个元素为NSDictionary，NSDictionary的key为识别结果，sc为识别结果的置信度。
+ *  @param results  -[out]
+ * 识别结果，NSArray的第一个元素为NSDictionary，NSDictionary的key为识别结果，sc为识别结果的置信度。
  *  @param isLast   -[out] 是否最后一个结果
  */
-- (void) onResults:(NSArray *) results isLast:(BOOL)isLast;
+- (void)onResults:(NSArray *)results isLast:(BOOL)isLast;
 
 @optional
 
@@ -64,28 +64,28 @@ typedef void(^IFlyOnBuildFinishCompletionHandler)(NSString* grammarId,IFlySpeech
  *
  *  @param volume -[out] 音量，范围从0-30
  */
-- (void) onVolumeChanged: (int)volume;
+- (void)onVolumeChanged:(int)volume;
 
 /*!
  *  开始录音回调<br>
  *  当调用了`startListening`函数之后，如果没有发生错误则会回调此函数。<br>
  *  如果发生错误则回调onError:函数
  */
-- (void) onBeginOfSpeech;
+- (void)onBeginOfSpeech;
 
 /*!
  *  停止录音回调<br>
  *  当调用了`stopListening`函数或者引擎内部自动检测到断点，如果没有发生错误则回调此函数。<br>
  *  如果发生错误则回调onError:函数
  */
-- (void) onEndOfSpeech;
+- (void)onEndOfSpeech;
 
 /*!
  *  取消识别回调<br>
  *  当调用了`cancel`函数之后，会回调此函数，在调用了cancel函数和回调onError之前会有一个<br>
  *  短暂时间，您可以在此函数中实现对这段时间的界面显示。
  */
-- (void) onCancel;
+- (void)onCancel;
 
 #ifdef _EDUCATION_
 /*!
@@ -93,7 +93,7 @@ typedef void(^IFlyOnBuildFinishCompletionHandler)(NSString* grammarId,IFlySpeech
  *
  *  @param key 音频Key
  */
-- (void) getAudioKey:(NSString *)key;
+- (void)getAudioKey:(NSString *)key;
 
 #endif
 
@@ -106,6 +106,6 @@ typedef void(^IFlyOnBuildFinishCompletionHandler)(NSString* grammarId,IFlySpeech
  *  @param arg1      arg1
  *  @param eventData 事件数据
  */
-- (void) onEvent:(int)eventType arg0:(int)arg0 arg1:(int)arg1 data:(NSData *)eventData;
+- (void)onEvent:(int)eventType arg0:(int)arg0 arg1:(int)arg1 data:(NSData *)eventData;
 
 @end

@@ -11,27 +11,27 @@
 /*!
  *  日志打印等级
  */
-typedef NS_OPTIONS(NSInteger, LOG_LEVEL){
+typedef NS_OPTIONS(NSInteger, LOG_LEVEL) {
     /*!
      *  全部打印
      */
-    LVL_ALL                 = -1,
+    LVL_ALL = -1,
     /*!
      *  高，异常分析需要的级别
      */
-    LVL_DETAIL              = 31,
+    LVL_DETAIL = 31,
     /*!
      *  中，打印基本日志信息
      */
-    LVL_NORMAL              = 15,
+    LVL_NORMAL = 15,
     /*!
      *  低，只打印主要日志信息
      */
-    LVL_LOW                 = 7,
+    LVL_LOW = 7,
     /*!
      *  不打印
      */
-    LVL_NONE                = 0
+    LVL_NONE = 0
 };
 
 /*!
@@ -45,14 +45,14 @@ typedef NS_OPTIONS(NSInteger, LOG_LEVEL){
  *
  *  @return  版本号
  */
-+ (NSString *) getVersion;
++ (NSString *)getVersion;
 
 /*!
  *  获取日志等级
  *
  *  @return 返回日志等级
  */
-+ (LOG_LEVEL) logLvl;
++ (LOG_LEVEL)logLvl;
 
 /*!
  *  是否打印控制台log<br>
@@ -60,7 +60,7 @@ typedef NS_OPTIONS(NSInteger, LOG_LEVEL){
  *
  *  @param showLog -[in] YES,打印log;NO,不打印
  */
-+ (void) showLogcat:(BOOL) showLog;
++ (void)showLogcat:(BOOL)showLog;
 
 /*!
  *  设置日志msc.log生成路径以及日志等级
@@ -75,7 +75,7 @@ typedef NS_OPTIONS(NSInteger, LOG_LEVEL){
  *
  *  @param level  -[in] 日志打印等级
  */
-+ (void) setLogFile:(LOG_LEVEL) level;
++ (void)setLogFile:(LOG_LEVEL)level;
 
 /*!
  *  设置日志文件的路径<br>
@@ -83,6 +83,6 @@ typedef NS_OPTIONS(NSInteger, LOG_LEVEL){
  *
  *  @param path  -[in] 日志文件的全路径
  */
-+ (void) setLogFilePath:(NSString*) path;
++ (void)setLogFilePath:(NSString *)path;
 
 @end

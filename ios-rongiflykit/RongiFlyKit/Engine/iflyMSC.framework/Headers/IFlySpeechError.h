@@ -19,17 +19,17 @@
 /*!
  *  错误码
  */
-@property(nonatomic,assign) int errorCode;
+@property (nonatomic, assign) int errorCode;
 
 /*!
  *  错误码类型
  */
-@property(nonatomic,assign) int errorType;
+@property (nonatomic, assign) int errorType;
 
 /*!
  *  错误描述
  */
-@property(nonatomic,retain) NSString* errorDesc;
+@property (nonatomic, retain) NSString *errorDesc;
 
 /*!
  *  初始化
@@ -38,21 +38,21 @@
  *
  *  @return IFlySpeechError对象
  */
-+ (instancetype) initWithError:(int) errorCode;
++ (instancetype)initWithError:(int)errorCode;
 
 /*!
  *  获取错误码
  *
  *  @return 错误码
  */
--(int) errorCode;
+- (int)errorCode;
 
 /*!
  *  获取错误描述
  *
  *  @return 错误描述
  */
-- (NSString *) errorDesc;
+- (NSString *)errorDesc;
 
 @end
 #endif
