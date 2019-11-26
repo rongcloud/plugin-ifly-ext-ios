@@ -33,7 +33,7 @@ fi
 done
 
 
-sed -i ""  -e '/CFBundleShortVersionString/{n;s/[0-9]\.[0-9]\.[0-9]\{1,2\}/'"$VER_FLAG"'/; }' ./RongiFlyKit/Info.plist
+sed -i ""  -e '/CFBundleShortVersionString/{n;s/[0-9]\.[0-9]\{1,2\}\.[0-9]\{1,2\}/'"$VER_FLAG"'/; }' ./RongiFlyKit/Info.plist
 
 if [ ${DEV_FLAG} == "debug" ]
 then
