@@ -10,9 +10,13 @@
 #import "RCiFlyKitExtensionModule.h"
 #import "RCiFlyInputView.h"
 #import <iflyMSC/iflyMSC.h>
-
 //默认的讯飞输入sdk的appKey
 #define iFlyKey @"5a3cf660"
+@interface UIImage (RCDynamicImage)
++ (UIImage *)rc_imageWithLocalPath:(NSString *)path;
+@property (nonatomic, copy) NSString *rc_imageLocalPath;
+- (BOOL)rc_needReloadImage;
+@end
 
 @interface RCiFlyKitExtensionModule () <RCiFlyInputViewDelegate>
 @property (nonatomic, strong) RCiFlyInputView *iflyInputView;
@@ -107,8 +111,10 @@
 - (UIImage *)imageFromiFlyBundle:(NSString *)imageName {
     NSString *imagePath = [[[NSBundle mainBundle] pathForResource:@"RongCloudiFly" ofType:@"bundle"]
         stringByAppendingPathComponent:imageName];
-
-    UIImage *bundleImage = [UIImage imageWithContentsOfFile:imagePath];
+    if (![imagePath hasSuffix:@".png"]) {
+        imagePath = [NSString stringWithFormat:@"%@.png", imagePath];
+    }
+    UIImage *bundleImage = [UIImage rc_imageWithLocalPath:imagePath];
     return bundleImage;
 }
 
@@ -170,13 +176,16 @@
                         successBlock();
                     }
                 } else {
-                    UIAlertView *alertView = [[UIAlertView alloc]
-                            initWithTitle:NSLocalizedStringFromTable(@"AccessRightTitle", @"RongCloudKit", nil)
-                                  message:NSLocalizedStringFromTable(@"speakerAccessRight", @"RongCloudKit", nil)
-                                 delegate:nil
-                        cancelButtonTitle:NSLocalizedStringFromTable(@"OK", @"RongCloudKit", nil)
-                        otherButtonTitles:nil, nil];
-                    [alertView show];
+                    UIViewController *rootVC = [UIApplication sharedApplication].delegate.window.rootViewController;
+                    UIAlertController *alertController = [UIAlertController
+                        alertControllerWithTitle:NSLocalizedStringFromTable(@"AccessRightTitle", @"RongCloudKit", nil)
+                                         message:NSLocalizedStringFromTable(@"speakerAccessRight", @"RongCloudKit", nil)
+                                  preferredStyle:UIAlertControllerStyleAlert];
+                    [alertController
+                        addAction:[UIAlertAction actionWithTitle:NSLocalizedStringFromTable(@"OK", @"RongCloudKit", nil)
+                                                           style:UIAlertActionStyleDefault
+                                                         handler:nil]];
+                    [rootVC presentViewController:alertController animated:YES completion:nil];
                 }
             });
         }];

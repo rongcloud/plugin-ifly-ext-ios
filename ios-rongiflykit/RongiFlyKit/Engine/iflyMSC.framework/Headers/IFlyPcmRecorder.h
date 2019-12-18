@@ -50,11 +50,13 @@
 
 @end
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 /*!
  *  录音器控件
  */
 @interface IFlyPcmRecorder : NSObject <AVAudioSessionDelegate>
-
+#pragma clang diagnostic pop
 /*!
  *  录音委托对象
  */
