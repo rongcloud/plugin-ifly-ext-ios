@@ -10,6 +10,7 @@
 #import "RCiFlyKitExtensionModule.h"
 #import "RCiFlyInputView.h"
 #import <iflyMSC/iflyMSC.h>
+#import <RongIMKit/RCKitUtility.h>
 //默认的讯飞输入sdk的appKey
 #define iFlyKey @"5a3cf660"
 @interface UIImage (RCDynamicImage)
@@ -176,7 +177,7 @@
                         successBlock();
                     }
                 } else {
-                    UIViewController *rootVC = [UIApplication sharedApplication].delegate.window.rootViewController;
+                    UIViewController *rootVC = [RCKitUtility getKeyWindow].rootViewController;
                     UIAlertController *alertController = [UIAlertController
                         alertControllerWithTitle:NSLocalizedStringFromTable(@"AccessRightTitle", @"RongCloudKit", nil)
                                          message:NSLocalizedStringFromTable(@"speakerAccessRight", @"RongCloudKit", nil)
