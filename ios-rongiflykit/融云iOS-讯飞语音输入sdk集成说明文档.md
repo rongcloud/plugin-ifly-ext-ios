@@ -1,19 +1,34 @@
-融云IM讯飞语音输入sdk-RongiFlykit集成说明文档
+融云 IM 讯飞语音输入 sdk-RongiFlyKit 集成说明文档
 
-#一、
- 融云的讯飞输入法插件依赖于IMKit，把讯飞语音输入 SDK 文件夹拷贝到项目文件夹下，并导入到项目工程中。注：RongiFlykit依赖于讯飞的iflyMSC.framework和资源包RongCloudiFly.bundle
+### 一、sdk-RongiFlyKit 需要的文件 ：
 
-#二、
+| 文件 | 说明 |
+|:------------------:|:------------------|
+| RongiFlyKit.framework | 融云 IM 讯飞输入法插件库 |
+| RongCloudiFly.bundle | 图片资源包 |
+| iflyMSC.framework | 讯飞 SDK（参考二获取） |
+
+### 二、获取 appkey 和 讯飞 SDK
+讯飞的 appkey 和 sdk 是绑定的，所以请先参考[讯飞官网](https://www.xfyun.cn/doc/asr/voicedictation/iOS-SDK.html#_2、sdk集成指南)注册账号，在讯飞开放平台申请应用获得 appkey, 下载与 appkey 绑定的 iflyMSC.framework 库
+
+### 三、copy 库
+参考步骤一 把所需文件导入项目工程，
+如果使用项目 RongiFlyKit 源码，只需要把源码中的  iflyMSC.framework 库替换成步骤二中获取的 iflyMSC.framework 库
+
+### 四、Build Settings
  Build Settings 中 Other Linker Flags 添加 -ObjC 。
 
-#三、
-添加系统依赖库
+
+### 五、依赖库
+融云的讯飞输入法插件依赖于 IMKit，添加 IMKit 参考 <https://docs.rongcloud.cn/im/imkit/ios/quick-start/import/#_1> ,
 除了IMKit所需的依赖库，还需要添加
-Foundation.framework
+
+Foundation.framework   <br/>
 AddressBook.framework
 
-#四、
- 如果需要修改讯飞sdk的appkey，来做一些业务统计，请在IMKit初始化之后调用下面的方法，保证IMKit加载该模块的时候，使用正确的讯飞appkey
- 注意！！！：因为讯飞的appkey和sdk是绑定的，所以如果你需要更换讯飞的appkey，就必须更换成对应的iflyMSC.framework
+### 六、注册
+RongiFlyKit  注册 appkey:
 
-[RCiFlyKit setiFlyAppKey:@"58243521"];
+```
+[RCiFlyKit setiFlyAppKey:@"12345678"];
+```
