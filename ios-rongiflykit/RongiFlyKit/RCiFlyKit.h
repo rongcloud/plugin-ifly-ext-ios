@@ -14,11 +14,11 @@
 @interface RCiFlyKit : NSObject
 
 /**
- 如果不需要讯飞sdk的输入统计，那么可以直接使用iFlyKit中内置的讯飞appkey
- 如果需要修改讯飞sdk的appkey，请在IMKit初始化之后调用这个方法，保证IMKit加载该模块的时候，使用正确的讯飞appkey
- 注：因为讯飞的appkey和sdk是绑定的，所以如果你需要更换讯飞的appkey，就必须更换成对应的iflyMSC.framework
- @param key 新的讯飞sdk的appkey
- @discussion  [RCiFlyKit setiFlyAppKey:@"58243521"];
+ 注册讯飞 appkey
+ @param key  讯飞 sdk 的 appkey
+ @discussion  [RCiFlyKit setiFlyAppKey:@"12345678"];
+ @discussion  讯飞的 appkey 和 sdk 是绑定的，请参考讯飞官网 (https://www.xfyun.cn/doc/asr/voicedictation/iOS-SDK.html) 注册账号，在讯飞开放平台申请应用获得 appkey, 下载与 appkey 绑定的 iflyMSC.framework 库,导入项目之后再调用该接口
+
  */
 + (void)setiFlyAppkey:(NSString *)key;
 
