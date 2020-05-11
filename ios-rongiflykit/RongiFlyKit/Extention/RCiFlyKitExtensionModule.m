@@ -70,7 +70,11 @@
         //创建语音配置,appid必须要传入，仅执行一次则可
         NSString *initString = [[NSString alloc] initWithFormat:@"appid=%@", ws.iflyAppKey];
         if (ws.iflyAppKey.length == 0) {
-            RCLogE(@"iflyAppKey is nil, 请参考讯飞官网(https://www.xfyun.cn/doc/asr/voicedictation/iOS-SDK.html)注册账号，在讯飞开放平台申请应用获得 appkey, 下载与 appkey 绑定的 iflyMSC.framework 库,之后调用 RCiFlyKit 类中方法 setiFlyAppKey 注册 appkey");
+            RCLogE(@"iflyAppKey is nil, "
+                   @"请参考讯飞官网(https://www.xfyun.cn/doc/asr/voicedictation/"
+                   @"iOS-SDK.html)注册账号，在讯飞开放平台申请应用获得 appkey, 下载与 appkey 绑定的 iflyMSC.framework "
+                   @"库,之后调用 RCiFlyKit 类中方法 setiFlyAppKey 注册 appkey");
+            return;
         }
         //所有服务启动前，需要确保执行createUtility
         [IFlySpeechUtility createUtility:initString];
