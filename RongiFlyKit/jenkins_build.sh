@@ -29,7 +29,9 @@ fi
 done
 
 
-sed -i ""  -e '/CFBundleShortVersionString/{n;s/[0-9]\.[0-9]\{1,2\}\.[0-9]\{1,2\}/'"$VER_FLAG"'/; }' ./RongiFlyKit/Info.plist
+#sed -i ""  -e '/CFBundleShortVersionString/{n;s/[0-9]\.[0-9]\{1,2\}\.[0-9]\{1,2\}/'"$VER_FLAG"'/; }' ./RongiFlyKit/Info.plist
+Bundle_Short_Version=$(/usr/libexec/PlistBuddy -c "Print CFBundleShortVersionString" ./RongiFlyKit/Info.plist)
+sed -i ""  -e '/CFBundleShortVersionString/{n;s/'${Bundle_Short_Version}'/'"$VER_FLAG"'/; }' ./RongiFlyKit/Info.plist
 
 PROJECT_NAME="RongiFlyKit.xcodeproj"
 targetName="RongiFlyKit"
