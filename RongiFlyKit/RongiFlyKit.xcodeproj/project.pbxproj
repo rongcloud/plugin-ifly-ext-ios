@@ -27,10 +27,10 @@
 		27C42ECD1DE2FABB003E2306 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27C42ECC1DE2FABB003E2306 /* UIKit.framework */; };
 		27C42ECF1DE2FAC0003E2306 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27C42ECE1DE2FAC0003E2306 /* Foundation.framework */; };
 		27C42ED11DE2FAC6003E2306 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27C42ED01DE2FAC6003E2306 /* CoreGraphics.framework */; };
+		3B11805D256CFF91001E5105 /* RongIMKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8846D421DE543A700ED3AF9 /* RongIMKit.framework */; };
+		3B118060256CFF94001E5105 /* RongIMLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8846D411DE543A700ED3AF9 /* RongIMLib.framework */; };
 		A24AFACB247F620F001BA5A2 /* RCIFlySpeechRecognizerManager.h in Headers */ = {isa = PBXBuildFile; fileRef = A24AFAC9247F620E001BA5A2 /* RCIFlySpeechRecognizerManager.h */; };
 		A24AFACC247F620F001BA5A2 /* RCIFlySpeechRecognizerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A24AFACA247F620F001BA5A2 /* RCIFlySpeechRecognizerManager.m */; };
-		F8846D431DE543A700ED3AF9 /* RongIMLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8846D411DE543A700ED3AF9 /* RongIMLib.framework */; };
-		F8846D441DE543A700ED3AF9 /* RongIMKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8846D421DE543A700ED3AF9 /* RongIMKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +74,7 @@
 			files = (
 				27C42ED11DE2FAC6003E2306 /* CoreGraphics.framework in Frameworks */,
 				27C42ECF1DE2FAC0003E2306 /* Foundation.framework in Frameworks */,
+				3B118060256CFF94001E5105 /* RongIMLib.framework in Frameworks */,
 				27C42ECD1DE2FABB003E2306 /* UIKit.framework in Frameworks */,
 				27C42ECB1DE2FAB4003E2306 /* QuartzCore.framework in Frameworks */,
 				27C42EC91DE2FAAF003E2306 /* SystemConfiguration.framework in Frameworks */,
@@ -82,8 +83,7 @@
 				27C42EC31DE2FA9E003E2306 /* AVFoundation.framework in Frameworks */,
 				27C42EC11DE2FA98003E2306 /* CoreTelephony.framework in Frameworks */,
 				27C42EBF1DE2FA92003E2306 /* CoreLocation.framework in Frameworks */,
-				F8846D431DE543A700ED3AF9 /* RongIMLib.framework in Frameworks */,
-				F8846D441DE543A700ED3AF9 /* RongIMKit.framework in Frameworks */,
+				3B11805D256CFF91001E5105 /* RongIMKit.framework in Frameworks */,
 				27AAB6301DE3EEB00035929B /* iflyMSC.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -439,6 +439,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/framework",
@@ -456,9 +457,11 @@
 				MACH_O_TYPE = staticlib;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = RongCloud.RongiFlyKit;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.rongcloud.im.RongiFlyKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
 			};
 			name = Debug;
@@ -474,6 +477,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/framework",
@@ -492,9 +496,11 @@
 				MACH_O_TYPE = staticlib;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = RongCloud.RongiFlyKit;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.rongcloud.im.RongiFlyKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
 			};
 			name = Release;
