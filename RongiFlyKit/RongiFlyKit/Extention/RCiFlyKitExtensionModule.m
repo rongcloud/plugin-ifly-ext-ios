@@ -87,9 +87,8 @@
     NSMutableArray *itemList = [[NSMutableArray alloc] init];
 
     RCExtensionPluginItemInfo *item = [[RCExtensionPluginItemInfo alloc] init];
-    item.normalImage = [self imageFromiFlyBundle:@"plugin_item_voice_input"];
-    item.highlightedImage = [self imageFromiFlyBundle:@"plugin_item_voice_input_highlighted"];
-    item.title = RCLocalizedString(@"VoiceInput");
+    item.image = [self imageFromiFlyBundle:@"actionbar_voice_input_icon"];
+    item.title = NSLocalizedStringFromTable(@"VoiceInput", @"RongCloudKit", nil);
     item.tapBlock = ^(RCChatSessionInputBarControl *chatSessionInputBar) {
         [ws checkPermissionIfSuccess:chatSessionInputBar];
     };
@@ -187,11 +186,11 @@
                 } else {
                     UIViewController *rootVC = [RCKitUtility getKeyWindow].rootViewController;
                     UIAlertController *alertController = [UIAlertController
-                        alertControllerWithTitle:RCLocalizedString(@"AccessRightTitle")
-                                         message:RCLocalizedString(@"speakerAccessRight")
+                        alertControllerWithTitle:NSLocalizedStringFromTable(@"AccessRightTitle", @"RongCloudKit", nil)
+                                         message:NSLocalizedStringFromTable(@"speakerAccessRight", @"RongCloudKit", nil)
                                   preferredStyle:UIAlertControllerStyleAlert];
                     [alertController
-                        addAction:[UIAlertAction actionWithTitle:RCLocalizedString(@"OK")
+                        addAction:[UIAlertAction actionWithTitle:NSLocalizedStringFromTable(@"OK", @"RongCloudKit", nil)
                                                            style:UIAlertActionStyleDefault
                                                          handler:nil]];
                     [rootVC presentViewController:alertController animated:YES completion:nil];
