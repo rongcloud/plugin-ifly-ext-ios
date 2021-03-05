@@ -10,7 +10,7 @@
 #import "RCiFlyInputView.h"
 #import <iflyMSC/iflyMSC.h>
 #import "RCISRDataHelper.h"
-
+#import "RongiFlyAdaptiveHeader.h"
 @interface RCVoicePlayer : NSObject
 + (RCVoicePlayer *)defaultPlayer;
 - (void)stopPlayVoice;
@@ -59,7 +59,7 @@
     middleLine.backgroundColor = [UIColor colorWithRed:231.0 / 255 green:231.0 / 255 blue:231.0 / 255 alpha:1];
 
     UIButton *clearButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, size.width / 2.0, 40)];
-    [clearButton setTitle:NSLocalizedStringFromTable(@"Clear", @"RongCloudKit", nil) forState:UIControlStateNormal];
+    [clearButton setTitle:RCLocalizedString(@"Clear") forState:UIControlStateNormal];
     clearButton.titleLabel.font = [UIFont systemFontOfSize:16.f];
     [clearButton setTitleColor:[UIColor colorWithRed:130.0 / 255 green:130.0 / 255 blue:130.0 / 255 alpha:1]
                       forState:UIControlStateNormal];
@@ -68,13 +68,18 @@
     self.clearButton = clearButton;
 
     UIButton *sendButton = [[UIButton alloc] initWithFrame:CGRectMake(size.width / 2.0, 0, size.width / 2.0, 40)];
-    [sendButton setTitle:NSLocalizedStringFromTable(@"Send", @"RongCloudKit", nil) forState:UIControlStateNormal];
+    [sendButton setTitle:RCLocalizedString(@"Send") forState:UIControlStateNormal];
     sendButton.titleLabel.font = [UIFont systemFontOfSize:16.f];
     [sendButton addTarget:self action:@selector(sendEvent) forControlEvents:UIControlEventTouchUpInside];
     [sendButton setTitleColor:[UIColor colorWithRed:130.0 / 255 green:130.0 / 255 blue:130.0 / 255 alpha:1]
                      forState:UIControlStateNormal];
     sendButton.backgroundColor = [UIColor clearColor];
     self.sendButton = sendButton;
+    
+    if ([RCKitUtility isRTL]) {
+        self.clearButton.frame = CGRectMake(size.width / 2.0, 0, size.width / 2.0, 40);
+        self.sendButton.frame = CGRectMake(0, 0, size.width / 2.0, 40);
+    }
 
     CGFloat backImgViewX = self.frame.size.width / 2.0 - 104 / 2.0;
     UIImageView *backImgView = [[UIImageView alloc] initWithFrame:CGRectMake(backImgViewX, 43, 104, 90)];
@@ -170,7 +175,7 @@
     NSLog(@"resultFromJson=%@", resultFromJson);
     [_result appendString:resultFromJson];
     if (isLast) {
-        NSLog(@"听写结果(json)：%@", self.result);
+        NSLog(@"Dictation results(json)：%@", self.result);
         if ([self.result isEqualToString:@"。"]) {
             self.result = [NSMutableString new];
         }

@@ -10,7 +10,7 @@
 #import "RCiFlyKitExtensionModule.h"
 #import "RCiFlyInputView.h"
 #import <iflyMSC/iflyMSC.h>
-#import <RongIMKit/RCKitUtility.h>
+#import "RongiFlyAdaptiveHeader.h"
 //默认的讯飞输入sdk的appKey
 #define iFlyKey @""
 @interface UIImage (RCDynamicImage)
@@ -87,8 +87,9 @@
     NSMutableArray *itemList = [[NSMutableArray alloc] init];
 
     RCExtensionPluginItemInfo *item = [[RCExtensionPluginItemInfo alloc] init];
-    item.image = [self imageFromiFlyBundle:@"actionbar_voice_input_icon"];
-    item.title = NSLocalizedStringFromTable(@"VoiceInput", @"RongCloudKit", nil);
+    item.normalImage = [self imageFromiFlyBundle:@"plugin_item_voice_input"];
+    item.highlightedImage = [self imageFromiFlyBundle:@"plugin_item_voice_input_highlighted"];
+    item.title = RCLocalizedString(@"VoiceInput");
     item.tapBlock = ^(RCChatSessionInputBarControl *chatSessionInputBar) {
         [ws checkPermissionIfSuccess:chatSessionInputBar];
     };
@@ -186,11 +187,11 @@
                 } else {
                     UIViewController *rootVC = [RCKitUtility getKeyWindow].rootViewController;
                     UIAlertController *alertController = [UIAlertController
-                        alertControllerWithTitle:NSLocalizedStringFromTable(@"AccessRightTitle", @"RongCloudKit", nil)
-                                         message:NSLocalizedStringFromTable(@"speakerAccessRight", @"RongCloudKit", nil)
+                        alertControllerWithTitle:RCLocalizedString(@"AccessRightTitle")
+                                         message:RCLocalizedString(@"speakerAccessRight")
                                   preferredStyle:UIAlertControllerStyleAlert];
                     [alertController
-                        addAction:[UIAlertAction actionWithTitle:NSLocalizedStringFromTable(@"OK", @"RongCloudKit", nil)
+                        addAction:[UIAlertAction actionWithTitle:RCLocalizedString(@"OK")
                                                            style:UIAlertActionStyleDefault
                                                          handler:nil]];
                     [rootVC presentViewController:alertController animated:YES completion:nil];

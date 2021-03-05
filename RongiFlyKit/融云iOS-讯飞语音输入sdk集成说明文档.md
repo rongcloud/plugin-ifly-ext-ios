@@ -7,10 +7,16 @@
  Build Settings 中 Other Linker Flags 添加 -ObjC 。
 
 #三、
-添加系统依赖库
-除了IMKit所需的依赖库，还需要添加
-Foundation.framework
+RongiFlyKit 是静态库，需要添加系统依赖库，
+
+```
 AddressBook.framework
+libz.tbd
+SystemConfiguration.framework
+CoreTelephony.framework
+CoreServices.framework
+Contacts.framework
+```
 
 #四、
  如果需要修改讯飞sdk的appkey，来做一些业务统计，请在IMKit初始化之后调用下面的方法，保证IMKit加载该模块的时候，使用正确的讯飞appkey
