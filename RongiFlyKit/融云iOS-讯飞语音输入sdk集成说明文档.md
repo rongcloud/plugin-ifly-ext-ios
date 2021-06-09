@@ -22,4 +22,4 @@ Contacts.framework
  如果需要修改讯飞sdk的appkey，来做一些业务统计，请在IMKit初始化之后调用下面的方法，保证IMKit加载该模块的时候，使用正确的讯飞appkey
  注意！！！：因为讯飞的appkey和sdk是绑定的，所以如果你需要更换讯飞的appkey，就必须更换成对应的iflyMSC.framework
 
-[RCiFlyKit setiFlyAppKey:@"58243521"];
+[RCiFlyKit setiFlyAppKey:@"讯飞appkey"];
